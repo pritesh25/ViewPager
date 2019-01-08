@@ -22,9 +22,9 @@ public class HomeFragment extends Fragment {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    static final int NUM_ITEMS = 3;
+    static int NUM_ITEMS = 3;
     static ViewPager mPager;
-    SlidePagerAdapter mPagerAdapter;
+    private SlidePagerAdapter mPagerAdapter;
     private boolean isPause = false;
 
     public HomeFragment() {
