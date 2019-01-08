@@ -10,6 +10,7 @@ public class MyConfiguration {
 
     public static final String DEVICE_PREF_NAME = "DevicePref";
     public static final String COUNTER = "COUNTER";
+    public static final String ISHOME = "false";
 
     // set value to shared preference
     public static void setPreferences(Context context, String key, String value) {
@@ -18,6 +19,13 @@ public class MyConfiguration {
         DeviceEditor.putString(key, value);
         DeviceEditor.commit();
     }
+
+//    public static void setPreferences(Context context, String key, boolean value) {
+//        SharedPreferences DevicePref = context.getSharedPreferences(DEVICE_PREF_NAME, 0);
+//        SharedPreferences.Editor DeviceEditor = DevicePref.edit();
+//        DeviceEditor.putBoolean(key, value);
+//        DeviceEditor.commit();
+//    }
 
     // get value from shared preference
     public static String getPreferences(Context context, String key) {
@@ -29,8 +37,6 @@ public class MyConfiguration {
         } catch (Exception e) {
             Log.d(TAG, "(getPreferences) catch exception = " + e.getMessage());
         }
-
         return data;
     }
-
 }

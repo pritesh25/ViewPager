@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import static com.journaldev.viewpager.MyConfiguration.COUNTER;
+import static com.journaldev.viewpager.MyConfiguration.ISHOME;
 
 
 /**
@@ -24,7 +25,7 @@ public class HomeFragment extends Fragment {
     static final int NUM_ITEMS = 3;
     static ViewPager mPager;
     SlidePagerAdapter mPagerAdapter;
-    public static int getPosition;
+    private boolean isPause = false;
 
     public HomeFragment() {
 
@@ -33,6 +34,8 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        MyConfiguration.setPreferences(getContext(),ISHOME,"true");
 
         mPager = view.findViewById(R.id.viewpager);
 
@@ -48,8 +51,6 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-
-                getPosition = position;
 
                 if (position == 0) {
                     //chat recent fragment
@@ -133,5 +134,26 @@ public class HomeFragment extends Fragment {
             return title;
         }
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MyConfiguration.setPreferences(getContext(),ISHOME,"false");
+        isPause = true;
+        MyConfiguration.setPreferences(getContext(),COUNTER,String.valueOf(mPager.getCurrentItem()));
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        MyConfiguration.setPreferences(getContext(),ISHOME,"true");
+
+        if(isPause)
+        {
+            mPager.setCurrentItem(Integer.parseInt(MyConfiguration.getPreferences(getContext(),COUNTER)));
+        }
     }
 }
