@@ -87,7 +87,6 @@ public class HomeFragment extends Fragment {
     }
 
     public static class SlidePagerAdapter extends FragmentPagerAdapter {
-
         private GamesFragment chatRecentFragment = new GamesFragment();
         private MoviesFragment homeFragment = new MoviesFragment();
         private TopRatedFragment storyMainFragment = new TopRatedFragment();
