@@ -1,4 +1,4 @@
-package com.journaldev.viewpager;
+package com.journaldev.viewpager.fragments;
 
 
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.journaldev.viewpager.MyConfiguration;
+import com.journaldev.viewpager.R;
 
 import static com.journaldev.viewpager.MyConfiguration.COUNTER;
 import static com.journaldev.viewpager.MyConfiguration.ISHOME;
@@ -132,7 +135,6 @@ public class HomeFragment extends Fragment {
             }
             return title;
         }
-
     }
 
     @Override

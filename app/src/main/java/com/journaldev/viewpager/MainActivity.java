@@ -6,26 +6,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.journaldev.viewpager.backstack.FirstFragment;
+import com.journaldev.viewpager.backstack.SecondFragment;
+import com.journaldev.viewpager.fragments.GamesFragment;
+import com.journaldev.viewpager.fragments.HomeFragment;
+import com.journaldev.viewpager.fragments.TargetFragment;
+
 import static com.journaldev.viewpager.MyConfiguration.ISHOME;
 
-public class MainActivity extends AppCompatActivity implements GamesFragment.GamesFragmentCallback {
+public class MainActivity extends AppCompatActivity implements GamesFragment.GamesFragmentCallback,FirstFragment.FirstFragmentCallback,SecondFragment.SecondFragmentCallback {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fragmentTransaction(new HomeFragment());
+        fragmentTransaction(new FirstFragment());
 
+        //fragmentTransaction(new HomeFragment());
 
     }
 
     @Override
     public void onBackPressed() {
 
-        if (Integer.parseInt(MyConfiguration.getPreferences(getApplicationContext(), MyConfiguration.COUNTER)) != 1) {
+        super.onBackPressed();
+
+        /*if (Integer.parseInt(MyConfiguration.getPreferences(getApplicationContext(), MyConfiguration.COUNTER)) != 1) {
             //Log.d(TAG,"other than 1 position");
 
             if (Boolean.parseBoolean(MyConfiguration.getPreferences(getApplicationContext(), ISHOME))) {
@@ -38,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements GamesFragment.Gam
         } else {
             Log.d(TAG, "onBackPress called");
             finish();
-        }
+        }*/
     }
 
     @Override
@@ -51,5 +60,15 @@ public class MainActivity extends AppCompatActivity implements GamesFragment.Gam
         managerTransaction.replace(R.id.frameLayout, fragment, fragment.getTag());
         managerTransaction.addToBackStack(fragment.getTag());
         managerTransaction.commit();
+    }
+
+    @Override
+    public void goToSecond() {
+        fragmentTransaction(new SecondFragment());
+    }
+
+    @Override
+    public void goToFirst() {
+        fragmentTransaction(new FirstFragment());
     }
 }

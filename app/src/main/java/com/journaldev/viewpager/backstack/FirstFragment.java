@@ -1,65 +1,66 @@
-package com.journaldev.viewpager;
+package com.journaldev.viewpager.backstack;
+
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.journaldev.viewpager.R;
+
 /**
  * A simple {@link Fragment} subclass.
-*/
+ */
+public class FirstFragment extends Fragment {
 
-public class GamesFragment extends Fragment {
+    private String TAG = this.getClass().getSimpleName();
+    public FirstFragmentCallback firstFragmentCallback;
 
-    private final String TAG = this.getClass().getSimpleName();
-    public GamesFragmentCallback gamesFragmentCallback;
-
-    public GamesFragment() {
+    public FirstFragment() {
         // Required empty public constructor
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        gamesFragmentCallback = (GamesFragmentCallback)getActivity();
+        firstFragmentCallback = (FirstFragmentCallback)context;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_games, container, false);
+        return inflater.inflate(R.layout.fragment_first, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.click).setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(gamesFragmentCallback != null)
+                if(firstFragmentCallback != null)
                 {
-                    Log.d(TAG,"callback is not null");
-                    gamesFragmentCallback.goToTarget();
+                    firstFragmentCallback.goToSecond();
                 }
                 else
                 {
-                    Log.d(TAG,"callback is null");
+                    Log.d(TAG,"null callkback");
                 }
+
             }
         });
 
     }
 
-    public interface GamesFragmentCallback {
-        void goToTarget();
+    public interface FirstFragmentCallback {
+        void goToSecond();
     }
 }
