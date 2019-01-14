@@ -13,7 +13,7 @@ import android.widget.ImageView;
 
 import com.herba.sdk.myapplication.R;
 import com.herba.sdk.myapplication.viewpager.MainViewPagerActivity;
-import com.herba.sdk.myapplication.viewpager.fragment.home.HomeFragment;
+import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagetFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,7 +46,7 @@ public class RestaurantFragment extends Fragment {
         ic_movies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new HomeFragment());
+                switchFragment(new HomeViewPagetFragment());
             }
         });
 
@@ -54,7 +54,7 @@ public class RestaurantFragment extends Fragment {
         ic_shopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new ShoppingFragment());
+                switchFragment(new SearchFragment());
             }
         });
 

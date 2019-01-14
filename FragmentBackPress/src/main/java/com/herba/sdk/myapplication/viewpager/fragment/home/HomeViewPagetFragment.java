@@ -89,7 +89,7 @@ public class HomeViewPagetFragment extends Fragment {
     public static class SlidePagerAdapter extends FragmentPagerAdapter {
 
         private ChatFragment chatRecentFragment     = new ChatFragment();
-        private HomeFragment homeFragment           = new HomeFragment();
+        private HomeFeedFragment homeFeedFragment = new HomeFeedFragment();
         private CameraFragment storyMainFragment    = new CameraFragment();
         private String TAG = this.getClass().getSimpleName();
 
@@ -105,8 +105,8 @@ public class HomeViewPagetFragment extends Fragment {
                     Log.d(TAG,"chatRecentFragment");
                     return chatRecentFragment;
                 case 1:
-                    Log.d(TAG,"homeFragment");
-                    return homeFragment;
+                    Log.d(TAG,"homeFeedFragment");
+                    return homeFeedFragment;
                 case 2:
                     Log.d(TAG,"storyMainFragment");
                     return storyMainFragment;
