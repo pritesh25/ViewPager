@@ -9,7 +9,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/FragmentBackPress" />
-            <option value="$PROJECT_DIR$/ViewPagerBackPress" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

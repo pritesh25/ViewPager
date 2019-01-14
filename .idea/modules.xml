@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FragmentBackPress/FragmentBackPress.iml" filepath="$PROJECT_DIR$/FragmentBackPress/FragmentBackPress.iml" />
       <module fileurl="file://$PROJECT_DIR$/ViewPager.iml" filepath="$PROJECT_DIR$/ViewPager.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ViewPagerBackPress/ViewPagerBackPress.iml" filepath="$PROJECT_DIR$/ViewPagerBackPress/ViewPagerBackPress.iml" />
     </modules>
   </component>
 </project>

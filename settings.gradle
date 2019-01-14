@@ -1,1 +1,1 @@
-include ':ViewPagerBackPress', ':FragmentBackPress'
+include ':FragmentBackPress'

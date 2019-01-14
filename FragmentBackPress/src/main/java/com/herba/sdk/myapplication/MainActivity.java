@@ -1,65 +1,33 @@
 package com.herba.sdk.myapplication;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
-import com.herba.sdk.myapplication.backstack.FirstFragment;
-import com.herba.sdk.myapplication.backstack.SecondFragment;
+import com.herba.sdk.myapplication.backstack.MainFragmentActivity;
+import com.herba.sdk.myapplication.viewpager.MainViewPagerActivity;
 
-public class MainActivity extends AppCompatActivity implements FirstFragment.FirstFragmentCallback,SecondFragment.SecondFragmentCallback {
-
-    private String TAG = this.getClass().getSimpleName();
+public class MainActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        replaceFragment(new FirstFragment());
+        findViewById(R.id.btnFragment).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainFragmentActivity.class));
+            }
+        });
 
+        findViewById(R.id.btnViewPager).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainViewPagerActivity.class));
+            }
+        });
     }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Log.d(TAG,"fragment count = "+getSupportFragmentManager().getBackStackEntryCount());
-
-        if(getSupportFragmentManager().getBackStackEntryCount() == 1)
-        {
-            finish();
-        }
-        else
-        {
-            super.onBackPressed();
-        }
-    }
-
-    private void replaceFragment (Fragment fragment) {
-        String backStateName = fragment.getClass().getName();
-
-        FragmentManager manager = getSupportFragmentManager();
-        boolean fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
-
-        if (!fragmentPopped) { //fragment not in back stack, create it.
-            FragmentTransaction ft = manager.beginTransaction();
-            ft.replace(R.id.frameLayout, fragment);
-            ft.addToBackStack(backStateName);
-            ft.commit();
-        }
-    }
-
-    @Override
-    public void goToSecond() {
-        replaceFragment(new SecondFragment());
-    }
-
-    @Override
-    public void goToFirst() {
-        replaceFragment(new FirstFragment());
-    }
-
 }
