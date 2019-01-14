@@ -78,7 +78,7 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
         replaceFragment(new TargetFragment());
     }
 
-/*    public void replaceFragment(Fragment fragment) {
+    /* public void replaceFragment(Fragment fragment) {
         FragmentTransaction managerTransaction = getSupportFragmentManager().beginTransaction();
         managerTransaction.replace(R.id.frameLayout, fragment, fragment.getTag());
         managerTransaction.addToBackStack(fragment.getTag());
