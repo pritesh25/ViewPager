@@ -2,6 +2,7 @@ package com.herba.sdk.myapplication.viewpager;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -53,5 +54,19 @@ public class MainViewPagerActivity extends AppCompatActivity implements GamesFra
         managerTransaction.replace(R.id.frameLayout, fragment, fragment.getTag());
         managerTransaction.addToBackStack(fragment.getTag());
         managerTransaction.commit();
+    }
+
+    private void replaceFragment (Fragment fragment) {
+        String backStateName = fragment.getClass().getName();
+
+        FragmentManager manager = getSupportFragmentManager();
+        boolean fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
+
+        if (!fragmentPopped) { //fragment not in back stack, create it.
+            FragmentTransaction ft = manager.beginTransaction();
+            ft.replace(R.id.frameLayout, fragment);
+            ft.addToBackStack(backStateName);
+            ft.commit();
+        }
     }
 }
