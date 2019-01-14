@@ -58,7 +58,7 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
             }
         }
 
-     /*   super.onBackPressed();
+        /*super.onBackPressed();
         Log.d(TAG,"fragment count = "+getSupportFragmentManager().getBackStackEntryCount());
 
         if(getSupportFragmentManager().getBackStackEntryCount() == 0)
