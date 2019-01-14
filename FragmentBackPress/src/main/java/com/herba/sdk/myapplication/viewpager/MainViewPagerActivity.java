@@ -30,7 +30,7 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
     @Override
     public void onBackPressed() {
 
-        /*Log.d(TAG,"fragment count = "+getSupportFragmentManager().getBackStackEntryCount());
+        Log.d(TAG,"fragment count = "+getSupportFragmentManager().getBackStackEntryCount());
 
         if (Integer.parseInt(MyConfiguration.getPreferences(getApplicationContext(), MyConfiguration.COUNTER)) != 1) {
             //Log.d(TAG,"other than 1 position");
@@ -56,9 +56,9 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
             {
                 Log.d(TAG, "onBackPress else");
             }
-        }*/
+        }
 
-        super.onBackPressed();
+     /*   super.onBackPressed();
         Log.d(TAG,"fragment count = "+getSupportFragmentManager().getBackStackEntryCount());
 
         if(getSupportFragmentManager().getBackStackEntryCount() == 0)
@@ -69,7 +69,7 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
         else
         {
             Log.d(TAG,"else backpress");
-        }
+        }*/
 
     }
 
@@ -93,10 +93,16 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
 
         if (!fragmentPopped) { //fragment not in back stack, create it.
             FragmentTransaction ft = manager.beginTransaction();
+            ft.setCustomAnimations
+                    (
+                    R.anim.fragment_slide_right_enter,
+                    R.anim.fragment_slide_right_exit,
+                    R.anim.fragment_slide_right_enter,
+                    R.anim.fragment_slide_right_exit
+                    );
             ft.replace(R.id.frameLayout, fragment);
             ft.addToBackStack(backStateName);
             ft.commit();
         }
     }
-
 }
