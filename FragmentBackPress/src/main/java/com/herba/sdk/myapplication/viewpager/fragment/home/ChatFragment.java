@@ -1,4 +1,4 @@
-package com.herba.sdk.myapplication.viewpager;
+package com.herba.sdk.myapplication.viewpager.fragment.home;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -16,12 +16,12 @@ import com.herba.sdk.myapplication.R;
  * A simple {@link Fragment} subclass.
 */
 
-public class GamesFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
-    private final String TAG = this.getClass().getSimpleName();
+    private String TAG = this.getClass().getSimpleName();
     public GamesFragmentCallback gamesFragmentCallback;
 
-    public GamesFragment() {
+    public ChatFragment() {
         // Required empty public constructor
     }
 
@@ -35,7 +35,7 @@ public class GamesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_games, container, false);
+        return inflater.inflate(R.layout.fragment_chat, container, false);
     }
 
     @Override
@@ -62,5 +62,11 @@ public class GamesFragment extends Fragment {
 
     public interface GamesFragmentCallback {
         void goToTarget();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG,"onResumed called");
     }
 }

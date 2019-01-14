@@ -8,10 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.herba.sdk.myapplication.R;
+import com.herba.sdk.myapplication.viewpager.fragment.home.ChatFragment;
+import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagetFragment;
 
 import static com.herba.sdk.myapplication.viewpager.MyConfiguration.ISHOME;
 
-public class MainViewPagerActivity extends AppCompatActivity implements GamesFragment.GamesFragmentCallback{
+public class MainViewPagerActivity extends AppCompatActivity implements ChatFragment.GamesFragmentCallback{
 
     private String TAG = this.getClass().getSimpleName();
 
@@ -20,43 +22,70 @@ public class MainViewPagerActivity extends AppCompatActivity implements GamesFra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_viewpager);
 
-        fragmentTransaction(new HomeFragment());
+        getSupportActionBar().hide();
+
+        replaceFragment(new HomeViewPagetFragment());
     }
 
     @Override
     public void onBackPressed() {
 
-        Log.d(TAG,"fragment count = "+getSupportFragmentManager().getBackStackEntryCount());
+        /*Log.d(TAG,"fragment count = "+getSupportFragmentManager().getBackStackEntryCount());
 
         if (Integer.parseInt(MyConfiguration.getPreferences(getApplicationContext(), MyConfiguration.COUNTER)) != 1) {
             //Log.d(TAG,"other than 1 position");
 
             if (Boolean.parseBoolean(MyConfiguration.getPreferences(getApplicationContext(), ISHOME))) {
                 Log.d(TAG, "yes home");
-                new HomeFragment().setDefaultPager();
+                new HomeViewPagetFragment().setDefaultPager();
             } else {
                 Log.d(TAG, "not home");
                 super.onBackPressed();
             }
         } else {
+
+            super.onBackPressed();
             Log.d(TAG, "onBackPress called");
+
+            if(getSupportFragmentManager().getBackStackEntryCount() == 0)
+            {
+                Log.d(TAG, "onBackPress finish");
+                finish();
+            }
+            else
+            {
+                Log.d(TAG, "onBackPress else");
+            }
+        }*/
+
+        super.onBackPressed();
+        Log.d(TAG,"fragment count = "+getSupportFragmentManager().getBackStackEntryCount());
+
+        if(getSupportFragmentManager().getBackStackEntryCount() == 0)
+        {
+            Log.d(TAG,"if backpress");
             finish();
         }
+        else
+        {
+            Log.d(TAG,"else backpress");
+        }
+
     }
 
     @Override
     public void goToTarget() {
-        fragmentTransaction(new TargetFragment());
+        replaceFragment(new TargetFragment());
     }
 
-    private void fragmentTransaction(Fragment fragment) {
+/*    public void replaceFragment(Fragment fragment) {
         FragmentTransaction managerTransaction = getSupportFragmentManager().beginTransaction();
         managerTransaction.replace(R.id.frameLayout, fragment, fragment.getTag());
         managerTransaction.addToBackStack(fragment.getTag());
         managerTransaction.commit();
-    }
+    }*/
 
-    private void replaceFragment (Fragment fragment) {
+    public void replaceFragment (Fragment fragment) {
         String backStateName = fragment.getClass().getName();
 
         FragmentManager manager = getSupportFragmentManager();
@@ -69,4 +98,5 @@ public class MainViewPagerActivity extends AppCompatActivity implements GamesFra
             ft.commit();
         }
     }
+
 }

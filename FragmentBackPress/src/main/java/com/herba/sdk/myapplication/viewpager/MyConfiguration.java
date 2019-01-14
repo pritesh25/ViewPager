@@ -2,6 +2,7 @@ package com.herba.sdk.myapplication.viewpager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 
 public class MyConfiguration {
@@ -39,4 +40,5 @@ public class MyConfiguration {
         }
         return data;
     }
+
 }

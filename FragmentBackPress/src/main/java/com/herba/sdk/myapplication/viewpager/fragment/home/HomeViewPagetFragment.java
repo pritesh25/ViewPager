@@ -1,4 +1,4 @@
-package com.herba.sdk.myapplication.viewpager;
+package com.herba.sdk.myapplication.viewpager.fragment.home;
 
 
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.herba.sdk.myapplication.R;
+import com.herba.sdk.myapplication.viewpager.MyConfiguration;
 
 import static com.herba.sdk.myapplication.viewpager.MyConfiguration.COUNTER;
 import static com.herba.sdk.myapplication.viewpager.MyConfiguration.ISHOME;
@@ -19,7 +20,7 @@ import static com.herba.sdk.myapplication.viewpager.MyConfiguration.ISHOME;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeViewPagetFragment extends Fragment {
 
     private final String TAG = this.getClass().getSimpleName();
 
@@ -28,8 +29,7 @@ public class HomeFragment extends Fragment {
     private SlidePagerAdapter mPagerAdapter;
     private boolean isPause = false;
 
-    public HomeFragment() {
-
+    public HomeViewPagetFragment() {
     }
 
     @Override
@@ -78,7 +78,6 @@ public class HomeFragment extends Fragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
-
         return view;
     }
 
@@ -88,9 +87,11 @@ public class HomeFragment extends Fragment {
     }
 
     public static class SlidePagerAdapter extends FragmentPagerAdapter {
-        private GamesFragment chatRecentFragment = new GamesFragment();
-        private MoviesFragment homeFragment = new MoviesFragment();
-        private TopRatedFragment storyMainFragment = new TopRatedFragment();
+
+        private ChatFragment chatRecentFragment     = new ChatFragment();
+        private HomeFragment homeFragment           = new HomeFragment();
+        private CameraFragment storyMainFragment    = new CameraFragment();
+        private String TAG = this.getClass().getSimpleName();
 
         public SlidePagerAdapter(FragmentManager fm) {
             super(fm);
@@ -101,10 +102,13 @@ public class HomeFragment extends Fragment {
 
             switch (position) {
                 case 0:
+                    Log.d(TAG,"chatRecentFragment");
                     return chatRecentFragment;
                 case 1:
+                    Log.d(TAG,"homeFragment");
                     return homeFragment;
                 case 2:
+                    Log.d(TAG,"storyMainFragment");
                     return storyMainFragment;
                 default:
                     return null;
@@ -113,25 +117,8 @@ public class HomeFragment extends Fragment {
 
         @Override
         public int getCount() {
+            Log.d(TAG,"getCount = "+NUM_ITEMS);
             return NUM_ITEMS;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            String title = null;
-            if (position == 0)
-            {
-                title = "Tab-1";
-            }
-            else if (position == 1)
-            {
-                title = "Tab-2";
-            }
-            else if (position == 2)
-            {
-                title = "Tab-3";
-            }
-            return title;
         }
     }
 
@@ -150,9 +137,9 @@ public class HomeFragment extends Fragment {
 
         MyConfiguration.setPreferences(getContext(),ISHOME,"true");
 
-        if(isPause)
-        {
-            mPager.setCurrentItem(Integer.parseInt(MyConfiguration.getPreferences(getContext(),COUNTER)));
-        }
+//        if(isPause)
+//        {
+//            mPager.setCurrentItem(Integer.parseInt(MyConfiguration.getPreferences(getContext(),COUNTER)));
+//        }
     }
 }
