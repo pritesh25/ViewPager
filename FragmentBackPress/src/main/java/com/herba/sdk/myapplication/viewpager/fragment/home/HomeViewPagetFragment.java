@@ -1,10 +1,12 @@
 package com.herba.sdk.myapplication.viewpager.fragment.home;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,6 +30,14 @@ public class HomeViewPagetFragment extends Fragment {
     static ViewPager mPager;
     private SlidePagerAdapter mPagerAdapter;
     private boolean isPause = false;
+
+    public HomeViewPagetFragmentCallback callback;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        callback = (HomeViewPagetFragmentCallback)context;
+    }
 
     public HomeViewPagetFragment() {
     }
@@ -71,6 +81,16 @@ public class HomeViewPagetFragment extends Fragment {
                     Log.d(TAG, "position = " + position);
                     //getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
                     MyConfiguration.setPreferences(getContext(),COUNTER,String.valueOf(position));
+
+                    if(callback != null)
+                    {
+                        callback.onCameraPermission();
+                    }
+                    else
+                    {
+                        Log.d(TAG,"callback is null");
+                    }
+
                 }
             }
 
@@ -86,7 +106,7 @@ public class HomeViewPagetFragment extends Fragment {
         mPager.setCurrentItem(1,true);
     }
 
-    public static class SlidePagerAdapter extends FragmentPagerAdapter {
+    public static class SlidePagerAdapter extends FragmentStatePagerAdapter{
 
         private ChatFragment chatRecentFragment     = new ChatFragment();
         private HomeFeedFragment homeFeedFragment = new HomeFeedFragment();
@@ -141,5 +161,9 @@ public class HomeViewPagetFragment extends Fragment {
 //        {
 //            mPager.setCurrentItem(Integer.parseInt(MyConfiguration.getPreferences(getContext(),COUNTER)));
 //        }
+    }
+
+    public interface HomeViewPagetFragmentCallback {
+        void onCameraPermission();
     }
 }

@@ -8,12 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.herba.sdk.myapplication.R;
+import com.herba.sdk.myapplication.viewpager.fragment.home.CameraFragment;
 import com.herba.sdk.myapplication.viewpager.fragment.home.ChatFragment;
 import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagetFragment;
 
 import static com.herba.sdk.myapplication.viewpager.MyConfiguration.ISHOME;
 
-public class MainViewPagerActivity extends AppCompatActivity implements ChatFragment.GamesFragmentCallback{
+public class MainViewPagerActivity extends AppCompatActivity implements ChatFragment.GamesFragmentCallback,HomeViewPagetFragment.HomeViewPagetFragmentCallback {
 
     private String TAG = this.getClass().getSimpleName();
 
@@ -104,5 +105,10 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
             ft.addToBackStack(backStateName);
             ft.commit();
         }
+    }
+
+    @Override
+    public void onCameraPermission() {
+        new CameraFragment().askPermission();
     }
 }

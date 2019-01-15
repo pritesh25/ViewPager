@@ -34,4 +34,17 @@ public class CameraFragment extends Fragment {
         super.onResume();
         Log.d(TAG,"onResumed called");
     }
+
+    public void askPermission() {
+        Log.d(TAG,"check for camera permission in camera fragment");
+    }
+
+
+    /*
+
+D/HomeFeedFragment: onResumed called
+D/ChatFragment: onResumed called
+D/CameraFragment: onResumed called
+
+    * */
 }

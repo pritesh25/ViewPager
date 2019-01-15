@@ -20,6 +20,8 @@ public class MainFragmentActivity extends AppCompatActivity implements FirstFrag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_fragment);
 
+        getSupportActionBar().hide();
+
         replaceFragment(new FirstFragment());
 
     }
