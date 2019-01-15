@@ -50,13 +50,10 @@ public class HomeFeedFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        Window window = getActivity().getWindow();
-        // clear FLAG_TRANSLUCENT_STATUS flag:
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        // finally change the color
-        window.setStatusBarColor(ContextCompat.getColor(getActivity(), android.R.color.holo_green_dark));
+        Window window = getActivity().getWindow();// clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);// finally change the color
+        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.colorBluePrimaryDark));
 
         return inflater.inflate(R.layout.fragment_home_feed, container, false);
     }
@@ -66,7 +63,7 @@ public class HomeFeedFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ic_movies = view.findViewById(R.id.ic_movies);
-        ic_movies.setColorFilter(Color.WHITE);
+        ic_movies.setColorFilter(getResources().getColor(R.color.colorBluePrimary));
         ic_movies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
