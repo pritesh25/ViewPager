@@ -94,13 +94,13 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
 
         if (!fragmentPopped) { //fragment not in back stack, create it.
             FragmentTransaction ft = manager.beginTransaction();
-            ft.setCustomAnimations
-                    (
-                    R.anim.fragment_slide_right_enter,
-                    R.anim.fragment_slide_right_exit,
-                    R.anim.fragment_slide_right_enter,
-                    R.anim.fragment_slide_right_exit
-                    );
+//            ft.setCustomAnimations
+//                    (
+//                    R.anim.fragment_slide_right_enter,
+//                    R.anim.fragment_slide_right_exit,
+//                    R.anim.fragment_slide_right_enter,
+//                    R.anim.fragment_slide_right_exit
+//                    );
             ft.replace(R.id.frameLayout, fragment);
             ft.addToBackStack(backStateName);
             ft.commit();

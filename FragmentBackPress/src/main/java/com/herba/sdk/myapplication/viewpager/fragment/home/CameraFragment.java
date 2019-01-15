@@ -39,12 +39,9 @@ public class CameraFragment extends Fragment {
         Log.d(TAG,"check for camera permission in camera fragment");
     }
 
-
-    /*
-
+/*
 D/HomeFeedFragment: onResumed called
 D/ChatFragment: onResumed called
 D/CameraFragment: onResumed called
-
-    * */
+*/
 }
