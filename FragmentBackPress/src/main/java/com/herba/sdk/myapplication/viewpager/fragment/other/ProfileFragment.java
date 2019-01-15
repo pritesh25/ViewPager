@@ -1,7 +1,6 @@
-package com.herba.sdk.myapplication.viewpager.fragment;
+package com.herba.sdk.myapplication.viewpager.fragment.other;
 
 
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,12 +17,12 @@ import android.widget.ImageView;
 
 import com.herba.sdk.myapplication.R;
 import com.herba.sdk.myapplication.viewpager.MainViewPagerActivity;
-import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagetFragment;
+import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagerFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class FavoriteFragment extends Fragment {
+/*
+* A simple {@link Fragment} subclass.
+*/
+public class ProfileFragment extends Fragment {
 
     ImageView ic_movies,
             ic_shopping,
@@ -31,7 +30,7 @@ public class FavoriteFragment extends Fragment {
             ic_restaurant,
             ic_favorite;
 
-    public FavoriteFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -45,19 +44,18 @@ public class FavoriteFragment extends Fragment {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);// finally change the color
         window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.colorDeepOrangePrimaryDark));
 
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+        return inflater.inflate(R.layout.fragment_notification, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         ic_movies = view.findViewById(R.id.ic_movies);
         ic_movies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new HomeViewPagetFragment());
+                switchFragment(new HomeViewPagerFragment());
             }
         });
 
@@ -73,7 +71,7 @@ public class FavoriteFragment extends Fragment {
         ic_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new MapFragment());
+                switchFragment(new AddFragment());
             }
         });
 
@@ -81,7 +79,7 @@ public class FavoriteFragment extends Fragment {
         ic_restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new RestaurantFragment());
+                switchFragment(new NotificationFragment());
             }
         });
 

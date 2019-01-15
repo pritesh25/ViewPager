@@ -5,7 +5,7 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewpager.fragment.FavoriteFragment">
+    tools:context=".viewpager.fragment.other.ProfileFragment">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarHomeFeed"

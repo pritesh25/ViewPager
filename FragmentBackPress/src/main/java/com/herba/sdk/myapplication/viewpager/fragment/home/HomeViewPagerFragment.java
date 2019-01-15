@@ -3,9 +3,10 @@ package com.herba.sdk.myapplication.viewpager.fragment.home;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -22,7 +23,7 @@ import static com.herba.sdk.myapplication.viewpager.MyConfiguration.ISHOME;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeViewPagetFragment extends Fragment {
+public class HomeViewPagerFragment extends Fragment {
 
     private final String TAG = this.getClass().getSimpleName();
 
@@ -39,12 +40,17 @@ public class HomeViewPagetFragment extends Fragment {
         callback = (HomeViewPagetFragmentCallback)context;
     }
 
-    public HomeViewPagetFragment() {
+    public HomeViewPagerFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         MyConfiguration.setPreferences(getContext(),ISHOME,"true");
 
@@ -98,7 +104,7 @@ public class HomeViewPagetFragment extends Fragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
-        return view;
+
     }
 
     public void setDefaultPager() {
@@ -109,7 +115,7 @@ public class HomeViewPagetFragment extends Fragment {
     public static class SlidePagerAdapter extends FragmentStatePagerAdapter{
 
         private ChatFragment chatRecentFragment     = new ChatFragment();
-        private HomeFeedFragment homeFeedFragment = new HomeFeedFragment();
+        private FeedFragment feedFragment = new FeedFragment();
         private CameraFragment storyMainFragment    = new CameraFragment();
         private String TAG = this.getClass().getSimpleName();
 
@@ -125,8 +131,8 @@ public class HomeViewPagetFragment extends Fragment {
                     Log.d(TAG,"chatRecentFragment");
                     return chatRecentFragment;
                 case 1:
-                    Log.d(TAG,"homeFeedFragment");
-                    return homeFeedFragment;
+                    Log.d(TAG,"feedFragment");
+                    return feedFragment;
                 case 2:
                     Log.d(TAG,"storyMainFragment");
                     return storyMainFragment;

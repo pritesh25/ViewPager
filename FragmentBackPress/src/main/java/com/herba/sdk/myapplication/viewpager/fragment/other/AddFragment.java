@@ -1,7 +1,6 @@
-package com.herba.sdk.myapplication.viewpager.fragment;
+package com.herba.sdk.myapplication.viewpager.fragment.other;
 
 
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,12 +17,12 @@ import android.widget.ImageView;
 
 import com.herba.sdk.myapplication.R;
 import com.herba.sdk.myapplication.viewpager.MainViewPagerActivity;
-import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagetFragment;
+import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagerFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SearchFragment extends Fragment {
+public class AddFragment extends Fragment {
 
     ImageView ic_movies,
             ic_shopping,
@@ -31,7 +30,7 @@ public class SearchFragment extends Fragment {
             ic_restaurant,
             ic_favorite;
 
-    public SearchFragment() {
+    public AddFragment() {
         // Required empty public constructor
     }
 
@@ -44,9 +43,9 @@ public class SearchFragment extends Fragment {
         Window window = getActivity().getWindow();// clear FLAG_TRANSLUCENT_STATUS flag:
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);// finally change the color
-        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.colorRedPrimaryDark));
+        window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.colorCyanPrimaryDark));
 
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        return inflater.inflate(R.layout.fragment_add, container, false);
     }
 
     @Override
@@ -58,23 +57,23 @@ public class SearchFragment extends Fragment {
         ic_movies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new HomeViewPagetFragment());
+                switchFragment(new HomeViewPagerFragment());
             }
         });
 
         ic_shopping = view.findViewById(R.id.ic_shopping);
-        ic_shopping.setColorFilter(getResources().getColor(R.color.colorRedPrimary));
         ic_shopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                switchFragment(new SearchFragment());
             }
         });
 
         ic_map = view.findViewById(R.id.ic_map);
+        ic_map.setColorFilter(getResources().getColor(R.color.colorCyanPrimary));
         ic_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new MapFragment());
             }
         });
 
@@ -82,7 +81,7 @@ public class SearchFragment extends Fragment {
         ic_restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new RestaurantFragment());
+                switchFragment(new NotificationFragment());
             }
         });
 
@@ -90,24 +89,10 @@ public class SearchFragment extends Fragment {
         ic_favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new FavoriteFragment());
+                switchFragment(new ProfileFragment());
             }
         });
     }
-
-
-/*    public void switchFragment (Fragment fragment) {
-        String backStateName = fragment.getClass().getName();
-        FragmentManager manager = getFragmentManager();
-        boolean fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
-
-        if (!fragmentPopped) { //fragment not in back stack, create it.
-            FragmentTransaction ft = manager.beginTransaction();
-            ft.replace(R.id.fragmentFrameLayout, fragment);
-            ft.addToBackStack(backStateName);
-            ft.commit();
-        }
-    }*/
 
     public void switchFragment(Fragment mFragment) {
         if (getContext() == null)

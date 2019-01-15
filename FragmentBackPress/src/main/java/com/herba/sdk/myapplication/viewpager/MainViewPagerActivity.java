@@ -10,11 +10,11 @@ import android.util.Log;
 import com.herba.sdk.myapplication.R;
 import com.herba.sdk.myapplication.viewpager.fragment.home.CameraFragment;
 import com.herba.sdk.myapplication.viewpager.fragment.home.ChatFragment;
-import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagetFragment;
+import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagerFragment;
 
 import static com.herba.sdk.myapplication.viewpager.MyConfiguration.ISHOME;
 
-public class MainViewPagerActivity extends AppCompatActivity implements ChatFragment.GamesFragmentCallback,HomeViewPagetFragment.HomeViewPagetFragmentCallback {
+public class MainViewPagerActivity extends AppCompatActivity implements ChatFragment.GamesFragmentCallback,HomeViewPagerFragment.HomeViewPagetFragmentCallback {
 
     private String TAG = this.getClass().getSimpleName();
 
@@ -25,7 +25,7 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
 
         getSupportActionBar().hide();
 
-        replaceFragment(new HomeViewPagetFragment());
+        replaceFragment(new HomeViewPagerFragment());
     }
 
     @Override
@@ -38,7 +38,7 @@ public class MainViewPagerActivity extends AppCompatActivity implements ChatFrag
 
             if (Boolean.parseBoolean(MyConfiguration.getPreferences(getApplicationContext(), ISHOME))) {
                 Log.d(TAG, "yes home");
-                new HomeViewPagetFragment().setDefaultPager();
+                new HomeViewPagerFragment().setDefaultPager();
             } else {
                 Log.d(TAG, "not home");
                 super.onBackPressed();

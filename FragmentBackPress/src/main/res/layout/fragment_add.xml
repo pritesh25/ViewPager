@@ -5,7 +5,7 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewpager.fragment.MapFragment">
+    tools:context=".viewpager.fragment.other.AddFragment">
 
     <!-- TODO: Update blank fragment layout -->
 

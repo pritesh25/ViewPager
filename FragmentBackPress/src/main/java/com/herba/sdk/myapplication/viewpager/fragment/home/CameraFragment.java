@@ -52,7 +52,7 @@ public class CameraFragment extends Fragment {
     }
 
 /*
-D/HomeFeedFragment: onResumed called
+D/FeedFragment: onResumed called
 D/ChatFragment: onResumed called
 D/CameraFragment: onResumed called
 */
