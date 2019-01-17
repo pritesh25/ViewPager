@@ -37,6 +37,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:gravity="center"
+        android:padding="@dimen/ten"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="30dp"
@@ -49,39 +50,44 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton3"
+            android:elevation="@dimen/ten"
             android:layout_marginBottom="@dimen/ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/colorGreenPrimary"
+            android:backgroundTint="@color/colorAmberPrimary"
+            app:backgroundTint="@color/colorAmberPrimary"
             android:clickable="true"
             android:src="@drawable/ic_headset"
             app:fabSize="mini" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton2"
+            android:elevation="@dimen/ten"
             android:layout_marginBottom="@dimen/ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/colorAmberPrimary"
+            android:backgroundTint="@color/colorBluePrimary"
+            app:backgroundTint="@color/colorBluePrimary"
             android:clickable="true"
             android:src="@drawable/ic_forum"
             app:fabSize="mini" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton1"
+            android:elevation="@dimen/ten"
             android:layout_marginBottom="@dimen/ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/colorBluePrimary"
+            android:backgroundTint="@color/colorGreenPrimary"
+            app:backgroundTint="@color/colorGreenPrimary"
             android:clickable="true"
             android:src="@drawable/ic_event"
             app:fabSize="mini" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton"
+            android:elevation="@dimen/ten"
             android:layout_marginBottom="@dimen/ten"
-            android:layout_marginLeft="@dimen/ten"
-            android:layout_marginRight="@dimen/ten"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"

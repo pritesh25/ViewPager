@@ -81,7 +81,7 @@ public class SearchFragment extends Fragment {
         ic_restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new NotificationFragment());
+                switchFragment(new LikeFragment());
             }
         });
 

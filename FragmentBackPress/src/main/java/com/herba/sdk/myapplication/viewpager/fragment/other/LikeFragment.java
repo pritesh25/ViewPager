@@ -22,7 +22,7 @@ import com.herba.sdk.myapplication.viewpager.fragment.home.HomeViewPagerFragment
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NotificationFragment extends Fragment {
+public class LikeFragment extends Fragment {
 
     ImageView ic_movies,
             ic_shopping,
@@ -30,7 +30,7 @@ public class NotificationFragment extends Fragment {
             ic_restaurant,
             ic_favorite;
 
-    public NotificationFragment() {
+    public LikeFragment() {
         // Required empty public constructor
     }
 
@@ -45,7 +45,7 @@ public class NotificationFragment extends Fragment {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);// finally change the color
         window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.colorOrangePrimaryDark));
 
-        return inflater.inflate(R.layout.fragment_restaurant, container, false);
+        return inflater.inflate(R.layout.fragment_like, container, false);
     }
 
     @Override

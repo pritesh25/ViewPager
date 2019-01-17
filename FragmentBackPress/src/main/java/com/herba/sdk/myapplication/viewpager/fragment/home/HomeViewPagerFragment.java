@@ -104,7 +104,6 @@ public class HomeViewPagerFragment extends Fragment {
             public void onPageScrollStateChanged(int state) {
             }
         });
-
     }
 
     public void setDefaultPager() {

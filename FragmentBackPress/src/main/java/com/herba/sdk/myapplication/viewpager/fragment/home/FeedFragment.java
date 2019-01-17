@@ -20,7 +20,7 @@ import com.herba.sdk.myapplication.R;
 import com.herba.sdk.myapplication.viewpager.MainViewPagerActivity;
 import com.herba.sdk.myapplication.viewpager.fragment.other.ProfileFragment;
 import com.herba.sdk.myapplication.viewpager.fragment.other.AddFragment;
-import com.herba.sdk.myapplication.viewpager.fragment.other.NotificationFragment;
+import com.herba.sdk.myapplication.viewpager.fragment.other.LikeFragment;
 import com.herba.sdk.myapplication.viewpager.fragment.other.SearchFragment;
 
 
@@ -87,7 +87,7 @@ public class FeedFragment extends Fragment {
         ic_restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new NotificationFragment());
+                switchFragment(new LikeFragment());
             }
         });
 

@@ -44,7 +44,7 @@ public class ProfileFragment extends Fragment {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);// finally change the color
         window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.colorDeepOrangePrimaryDark));
 
-        return inflater.inflate(R.layout.fragment_notification, container, false);
+        return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class ProfileFragment extends Fragment {
         ic_restaurant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchFragment(new NotificationFragment());
+                switchFragment(new LikeFragment());
             }
         });
 
